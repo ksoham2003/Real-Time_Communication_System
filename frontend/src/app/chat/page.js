@@ -18,7 +18,8 @@ import {
   Check,
   CheckCheck,
   Smile,
-  Paperclip
+  Paperclip,
+  ArrowLeft
 } from 'lucide-react';
 
 export default function ChatPage() {
@@ -398,7 +399,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="dashboard-container">
+    <div className={`dashboard-container ${selectedChat ? 'chat-active' : ''}`}>
       {/* 1. SIDEBAR */}
       <div className="sidebar">
         {/* Sidebar Header */}
@@ -530,6 +531,14 @@ export default function ChatPage() {
             {/* Chat Header */}
             <div className="chat-header">
               <div className="chat-header-info">
+                <button
+                  type="button"
+                  className="icon-btn back-btn"
+                  title="Back to Chats"
+                  onClick={() => setSelectedChat(null)}
+                >
+                  <ArrowLeft size={20} />
+                </button>
                 <img
                   src={getSenderAvatar(selectedChat)}
                   alt={getSenderName(selectedChat)}

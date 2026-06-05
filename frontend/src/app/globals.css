@@ -729,3 +729,68 @@ body {
   0%, 80%, 100% { transform: scale(0); }
   40% { transform: scale(1); }
 }
+
+/* Mobile Responsive Styling */
+.back-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .back-btn {
+    display: flex;
+    margin-right: 0.5rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .chat-window {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  /* When no chat is active, hide chat window and show sidebar */
+  .dashboard-container:not(.chat-active) .sidebar {
+    display: flex;
+  }
+
+  .dashboard-container:not(.chat-active) .chat-window {
+    display: none;
+  }
+
+  /* When chat is active, hide sidebar and show chat window */
+  .dashboard-container.chat-active .sidebar {
+    display: none;
+  }
+
+  .dashboard-container.chat-active .chat-window {
+    display: flex;
+  }
+
+  /* Adjust typography & spacing on mobile */
+  .chat-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .message-area {
+    padding: 1rem;
+  }
+
+  .chat-input-area {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Ensure modal fits nicely on small screens */
+  .modal-content {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .auth-card {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+}
